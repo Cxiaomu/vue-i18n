@@ -32,14 +32,24 @@ export default Vue.extend({
   },
   methods: {
     handleSelect(key: string, keyPath: string) {
-      if (keyPath !== this.activePath) this.$router.push(key);
+      if (key !== this.activePath) {
+        this.activePath = key;
+        this.$router.push(key);
+      }
     },
   },
 });
 </script>
 
 <style scoped lang="scss">
+@import "@/style/global.scss";
 #slideBar {
+  .el-menu-item.is-active {
+    border-left: 5px solid $activeColor;
+    .menu-title {
+      color: $activeColor;
+    }
+  }
   .menu-title {
     text-align: left;
     font-size: 1.1em;

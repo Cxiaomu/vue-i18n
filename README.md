@@ -1,4 +1,4 @@
-# vue-i18n
+# vue-i18n-my
 
 ## Project setup
 ```
