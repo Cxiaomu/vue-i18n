@@ -1,12 +1,27 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
+    <NavBar />
+    <el-row>
+      <el-col :span="4">
+        <SlideBar />
+      </el-col>
+      <el-col :span="20">
+        <router-view />
+      </el-col>
+    </el-row>
   </div>
 </template>
+<script lang="ts">
+import NavBar from "@/components/navBar.vue";
+import SlideBar from "@/components/sideBar.vue";
+export default {
+  name: "App",
+  components: {
+    NavBar,
+    SlideBar,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
