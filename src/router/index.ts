@@ -20,6 +20,12 @@ const routes: Array<RouteConfig> = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Formatting.vue"),
   },
+  {
+    path: "/dateTime",
+    name: "DateTime",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/DateTime.vue"),
+  },
 ];
 
 const router = new VueRouter({

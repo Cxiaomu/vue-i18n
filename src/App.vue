@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <el-row>
+    <el-row :gutter="20">
       <el-col :span="4">
         <SlideBar />
       </el-col>

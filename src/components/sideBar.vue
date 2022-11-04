@@ -1,15 +1,7 @@
 <template>
   <div id="slideBar">
-    <el-menu
-      :default-active="activePath"
-      class="el-menu-vertical-demo"
-      @select="handleSelect"
-    >
-      <el-menu-item
-        v-for="menu in menuList"
-        :key="menu.path"
-        :index="menu.path"
-      >
+    <el-menu :default-active="activePath" class="el-menu-vertical-demo" @select="handleSelect">
+      <el-menu-item v-for="menu in menuList" :key="menu.path" :index="menu.path">
         <span slot="title" class="menu-title">{{ menu.name }}</span>
       </el-menu-item>
     </el-menu>
@@ -25,10 +17,16 @@ export default Vue.extend({
     return {
       activePath: "/start",
       menuList: [
-        { label: "", name: "Start", path: "/start" },
-        { label: "", name: "Formatting", path: "/formatting" },
+        { label: "", name: "快速开始", path: "/start" },
+        { label: "", name: "格式化", path: "/formatting" },
+        { label: "", name: "日期时间", path: "/dateTime" },
       ],
     };
+  },
+  created() {
+    this.menuList.forEach((item) => {
+      if (this.$route.path.includes(item.path)) this.activePath = item.path;
+    })
   },
   methods: {
     handleSelect(key: string, keyPath: string) {
@@ -43,13 +41,16 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 @import "@/style/global.scss";
+
 #slideBar {
   .el-menu-item.is-active {
     border-left: 5px solid $activeColor;
+
     .menu-title {
       color: $activeColor;
     }
   }
+
   .menu-title {
     text-align: left;
     font-size: 1.1em;

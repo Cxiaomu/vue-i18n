@@ -4,3 +4,4 @@ declare module "element-ui/lib/locale/lang/zh-CN";
 
 declare module "@/lang/en.js";
 declare module "@/lang/zh.js";
+declare module "@/lang/dateTime.js";
